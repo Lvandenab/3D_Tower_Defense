@@ -51,7 +51,8 @@ public class ShortTower : MonoBehaviour
                 firecooldown = 1f / firerate;
             }
         }
-        
+        firecooldown -= Time.deltaTime;
+
 
     }
     void shoot()

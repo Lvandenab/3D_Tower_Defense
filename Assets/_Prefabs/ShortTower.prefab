@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Turret: {fileID: 3747244943694523804}
   Target: {fileID: 0}
-  Range: 1
+  Range: 3
   firerate: 3
   Longbullet: {fileID: 607124018161407470, guid: a7a98963fc5a75b4198d7f9f4eb6299b, type: 3}
   firespot: {fileID: 5069145588348271591}

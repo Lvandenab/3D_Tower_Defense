@@ -24,7 +24,7 @@ public class Playerhealth : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (health >= 0 && timer>= 60)
+        if (health >= 0 && timer>= 300)
         {
             Buttons.LoadWinScreen();
         }
