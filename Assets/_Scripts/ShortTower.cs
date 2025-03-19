@@ -8,10 +8,10 @@ public class ShortTower : MonoBehaviour
     // Start is called before the first frame update
     public GameObject Turret;
     public GameObject Target;
-    public float Range = 2.0f;
+    public float Range = 5.0f;
 
     //fire
-    public float firerate = 2f;
+    public float firerate = 3f;
     private float firecooldown = 0f;
     public GameObject Longbullet;
     public Transform firespot;
@@ -27,6 +27,7 @@ public class ShortTower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        firecooldown -= Time.deltaTime;
         GameObject[] possibleTargets = GameObject.FindGameObjectsWithTag("Enemy");
 
         if (possibleTargets.Length == 0) return;
@@ -50,7 +51,7 @@ public class ShortTower : MonoBehaviour
                 firecooldown = 1f / firerate;
             }
         }
-        firecooldown -= Time.deltaTime;
+        
 
     }
     void shoot()
@@ -60,6 +61,7 @@ public class ShortTower : MonoBehaviour
 
         if (longbullet != null)
             longbullet.Seek(Target);
+        Debug.Log("shoot");
 
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class LongBullet : MonoBehaviour
 {
-    public float speed = .001f;
+    public float speed = 50f;
 
     private GameObject target;
     public void Seek(GameObject _target)
@@ -28,7 +28,7 @@ public class LongBullet : MonoBehaviour
             //HitTarget();
             return;
         }*/
-        transform.position= Vector3.MoveTowards(dir.normalized,dir.normalized,distanceThisFrame);
+        transform.position = Vector3.MoveTowards(transform.position, dir, distanceThisFrame);
         
 
     }

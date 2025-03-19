@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     public float Speed = 2;
     public float WaypointAcceptableError = 0.01f;
 
-    public int health = 1;
+    public int health = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +41,9 @@ public class Enemy : MonoBehaviour
             Destroy(other.gameObject);
             health--;
         }
-
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
