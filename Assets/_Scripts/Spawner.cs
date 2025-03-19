@@ -4,22 +4,82 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    float spawnnum;
-    public GameObject enemy;
+    public double maxspawnnum;
+    public double spawnpoints;
+    public double smallprice;
+    public double largeprice;
+    public double spacing;
+    public double waittime;
+    public GameObject smallenemy;
+    public GameObject largeenemy;
     // Start is called before the first frame update
     void Start()
     {
-        spawnnum = 0;  
-    }
+        smallprice = 1;
+        largeprice = 6;
+        maxspawnnum = 2;  
+        spawnpoints = 1;
+        spacing = 0;
+        waittime = 10;
 
+    }
+    public void spawnsmall()
+    {
+        Transform spawner = GameObject.Find("Enemy spawn").transform;
+        Instantiate(smallenemy, spawner.position, spawner.rotation, null);
+    }
+    public void spawnbig()
+    {
+        Transform spawner = GameObject.Find("Enemy spawn").transform;
+        Instantiate(largeenemy, spawner.position, spawner.rotation, null);
+    }
     // Update is called once per frame
     void Update()
     {
-        spawnnum += Time.deltaTime;
-        if (spawnnum%3 < .01)
+        if (spawnpoints < smallprice)
         {
-            Transform spawner = GameObject.Find("Enemy spawn").transform;
-            Instantiate(enemy, spawner.position, spawner.rotation, null);
+            waittime = 10;
+            maxspawnnum *= 1.5;
+            spawnpoints = maxspawnnum;
+            largeprice *= 1.25;
+            smallprice *= 1.25;
+
         }
+        if (waittime > 0)
+        {
+            waittime -= Time.deltaTime;
+        }
+        else if (waittime <= 0)
+        {
+            
+            spacing += Time.deltaTime;
+            if (spacing >= .4)
+            {
+                
+                if (spawnpoints >= largeprice)
+                {
+                    spawnbig();
+                    spawnpoints -= largeprice;
+                    Debug.Log("largeenemy");
+                }
+                else if (spawnpoints >= smallprice)
+                {
+                    spawnsmall();
+                    spawnpoints -= smallprice;
+                    Debug.Log("smallenemy");
+                }
+                spacing = 0;
+                
+
+            }
+            /*spawnnum += Time.deltaTime;
+            if (spawnnum%3 < .01)
+            {
+                Transform spawner = GameObject.Find("Enemy spawn").transform;
+                Instantiate(enemy, spawner.position, spawner.rotation, null);
+            }*/
+        }
+
+
     }
 }

@@ -1,26 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class LongTower : MonoBehaviour
+public class ShortTower : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject Turret;
     public GameObject Target;
-    public float Range = 4.0f;
+    public float Range = 2.0f;
 
     //fire
-    public float firerate = 1f;
+    public float firerate = 2f;
     private float firecooldown = 0f;
     public GameObject Longbullet;
     public Transform firespot;
 
-   
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -43,7 +44,7 @@ public class LongTower : MonoBehaviour
         Turret.transform.LookAt(Target.transform.position);
         if (Vector3.Distance(transform.position, Target.transform.position) <= Range)
         {
-            if( firecooldown <= 0f)
+            if (firecooldown <= 0f)
             {
                 shoot();
                 firecooldown = 1f / firerate;
@@ -59,6 +60,6 @@ public class LongTower : MonoBehaviour
 
         if (longbullet != null)
             longbullet.Seek(Target);
-        
+
     }
 }

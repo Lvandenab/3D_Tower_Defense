@@ -12,25 +12,30 @@ public class Buttons : MonoBehaviour
     public GameObject creditsmenu;
     public GameObject instructionsmenu;
 
-    public void LoadLevel1()
+    public static void LoadLevel1()
     {
         SceneManager.LoadScene("Level 1");
         Time.timeScale = 1.0f;
     
     }
-    public void LoadMainMenu()
+    public static void LoadMainMenu()
     {
         SceneManager.LoadScene("Main Menu");
         Time.timeScale = 1.0f;
 
     }
-    public void LoadWinScreen() 
+    public static void LoadWinScreen() 
     {
         SceneManager.LoadScene("End_Screne");
         Time.timeScale = 1.0f;
 
     }
-    public void Quitbutton()
+    public static void LoadLossScreen()
+    {
+        SceneManager.LoadScene("Loss_Screne");
+        Time.timeScale = 1.0f;
+    }
+    public static void Quitbutton()
     {
         Application.Quit();
 

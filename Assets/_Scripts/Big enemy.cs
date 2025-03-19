@@ -3,23 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Bigenemy : MonoBehaviour
 {
     // Start is called before the first frame update
     public Path MyPath;
     public int currentDestination;
-    public float Speed = 2;
+    public float Speed = 1.25f;
     public float WaypointAcceptableError = 0.01f;
 
-    public int health = 1;
-
+    public Spawner spawner;
+    public int health = 3;
+    
     // Start is called before the first frame update
     void Start()
     {
         currentDestination = 0;
         MyPath = GameObject.Find("Waypoints").GetComponent<Path>();
+        spawner= GameObject.Find("Enemy spawn").GetComponent<Spawner>();
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -34,6 +36,7 @@ public class Enemy : MonoBehaviour
         }
 
     }
+   
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Bullet"))
@@ -41,6 +44,12 @@ public class Enemy : MonoBehaviour
             Destroy(other.gameObject);
             health--;
         }
-
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            spawner.spawnsmall();
+            spawner.spawnsmall();
+            spawner.spawnsmall();
+        }
     }
 }
