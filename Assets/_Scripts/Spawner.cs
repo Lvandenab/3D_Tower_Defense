@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class Spawner : MonoBehaviour
 {
@@ -26,12 +27,14 @@ public class Spawner : MonoBehaviour
     public void spawnsmall()
     {
         Transform spawner = GameObject.Find("Enemy spawn").transform;
-        Instantiate(smallenemy, spawner.position, spawner.rotation, null);
+        Vector3 pos = spawner.position;
+        Instantiate(smallenemy, new Vector3(pos.x, pos.y, pos.z), spawner.rotation, null);
     }
     public void spawnbig()
     {
         Transform spawner = GameObject.Find("Enemy spawn").transform;
-        Instantiate(largeenemy, spawner.position, spawner.rotation, null);
+        Vector3 pos = spawner.position;
+        Instantiate(largeenemy, new Vector3(pos.x,pos.y,pos.z), spawner.rotation, null);
     }
     // Update is called once per frame
     void Update()

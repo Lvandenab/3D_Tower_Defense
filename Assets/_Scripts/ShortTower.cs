@@ -15,13 +15,14 @@ public class ShortTower : MonoBehaviour
     private float firecooldown = 0f;
     public GameObject Longbullet;
     public Transform firespot;
+    public Animator animator;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -59,7 +60,7 @@ public class ShortTower : MonoBehaviour
     {
         GameObject bulletGo = (GameObject)Instantiate(Longbullet, firespot.position, firespot.rotation);
         LongBullet longbullet = bulletGo.GetComponent<LongBullet>();
-
+        animator.Play("Shoot");
         if (longbullet != null)
             longbullet.Seek(Target);
         Debug.Log("shoot");

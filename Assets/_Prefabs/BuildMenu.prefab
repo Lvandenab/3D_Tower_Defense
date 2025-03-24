@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShortTowerPrefab: {fileID: 0}
-  LongTowerPrefab: {fileID: 6378305160134889610, guid: 0b090f45883059542bdbd59933609cd9, type: 3}
+  LongTowerPrefab: {fileID: 1000013227101710, guid: d9231829d3cedca409477c9327eb6425, type: 3}
 --- !u!1 &3164629472075979013
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,5 +980,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b285a62b1af89c44089777cb6ff53a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShortTowerPrefab: {fileID: 3747244943694523804, guid: f8a4157a529c4694186c7aadb929fbd8, type: 3}
+  ShortTowerPrefab: {fileID: 1000010156534366, guid: ff744fa1e43cd5747a6732d0189a5a52, type: 3}
   LongTowerPrefab: {fileID: 0}

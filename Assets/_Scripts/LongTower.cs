@@ -14,23 +14,27 @@ public class LongTower : MonoBehaviour
     private float firecooldown = 0f;
     public GameObject Longbullet;
     public Transform firespot;
+    public Animator animator;
 
-   
+    public Transform turner, looktarget;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         GameObject[] possibleTargets = GameObject.FindGameObjectsWithTag("Enemy");
-
+        
         if (possibleTargets.Length == 0) return;
 
         Target = possibleTargets[0];
+        looktarget = Target.transform;
 
         foreach (GameObject o in possibleTargets)
         {
@@ -40,7 +44,9 @@ public class LongTower : MonoBehaviour
                 Target = o;
             }
         }
-        Turret.transform.LookAt(Target.transform.position);
+        turner.LookAt(looktarget);
+        //Physics.SyncTransforms();
+        
         if (Vector3.Distance(transform.position, Target.transform.position) <= Range)
         {
             if( firecooldown <= 0f)
@@ -56,7 +62,7 @@ public class LongTower : MonoBehaviour
     {
         GameObject bulletGo = (GameObject)Instantiate(Longbullet, firespot.position, firespot.rotation);
         LongBullet longbullet = bulletGo.GetComponent<LongBullet>();
-
+        animator.Play("Shoot");
         if (longbullet != null)
             longbullet.Seek(Target);
         

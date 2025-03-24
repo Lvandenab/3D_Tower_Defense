@@ -1,13 +1,17 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Playerhealth : MonoBehaviour
 {
     public int health;
-    public double timer;
-    
+    public TextMeshProUGUI healthText;
+
+    public float timer = 300;
+    public TextMeshProUGUI timeleft;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +27,10 @@ public class Playerhealth : MonoBehaviour
     }
     void Update()
     {
-        timer += Time.deltaTime;
-        if (health >= 0 && timer>= 300)
+        healthText.text = "Health : " + health;
+        timeleft.text = "Timespent : " + timer;
+        timer -= Time.deltaTime;
+        if (health >= 0 && timer<= 0)
         {
             Buttons.LoadWinScreen();
         }

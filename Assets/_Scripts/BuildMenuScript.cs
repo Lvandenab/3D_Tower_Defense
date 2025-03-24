@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class BuildMenuScript : MonoBehaviour
 {
@@ -15,21 +16,23 @@ public class BuildMenuScript : MonoBehaviour
     {
         Transform tile = GameObject.Find("BuildMenu(Clone)").transform.parent;
         Debug.Log($"Creating tower at {tile.position}, tile name {tile.name}");
-        Instantiate(ShortTowerPrefab, tile.position, tile.rotation, null);
-
+        Vector3 pos = tile.position;
+        Instantiate(ShortTowerPrefab,new Vector3(pos.x, 1, pos.z), tile.rotation, null);
 
         Buildable b = GetComponentInParent<Buildable>();
         b.HideMenu();
+        Destroy(b);
     }
     public void LongTower()
     {
         Transform tile = GameObject.Find("BuildMenu(Clone)").transform.parent;
         Debug.Log($"Creating tower at {tile.position}, tile name {tile.name}");
-        Instantiate(LongTowerPrefab, tile.position, tile.rotation, null);
-
-
+        Vector3 pos = tile.position;
+        Instantiate(LongTowerPrefab, new Vector3(pos.x, 1, pos.z), tile.rotation, null);
+        
 
         Buildable b = GetComponentInParent<Buildable>();
         b.HideMenu();
+        Destroy(b);
     }
 }
