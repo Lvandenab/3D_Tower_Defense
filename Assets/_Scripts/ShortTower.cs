@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.UI.GridLayoutGroup;
 
 public class ShortTower : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class ShortTower : MonoBehaviour
     public Transform firespot;
     public Animator animator;
 
-
+    public Transform turner, looktarget;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,7 @@ public class ShortTower : MonoBehaviour
         if (possibleTargets.Length == 0) return;
 
         Target = possibleTargets[0];
+        looktarget = Target.transform;
 
         foreach (GameObject o in possibleTargets)
         {
@@ -43,7 +45,8 @@ public class ShortTower : MonoBehaviour
                 Target = o;
             }
         }
-        Turret.transform.LookAt(Target.transform.position);
+        turner = this.transform;
+        turner.LookAt(looktarget);
         if (Vector3.Distance(transform.position, Target.transform.position) <= Range)
         {
             if (firecooldown <= 0f)

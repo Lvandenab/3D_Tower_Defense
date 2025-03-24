@@ -44,6 +44,7 @@ public class LongTower : MonoBehaviour
                 Target = o;
             }
         }
+        turner=this.transform;
         turner.LookAt(looktarget);
         //Physics.SyncTransforms();
         

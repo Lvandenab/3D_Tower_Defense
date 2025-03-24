@@ -28,7 +28,7 @@ public class Playerhealth : MonoBehaviour
     private void updatenums()
     {
         healthText.text = "Health : " + health;
-        timeleft.text = "Timespent : " + timer;
+        timeleft.text = "Time Spent : " + timer;
     }
     void Update()
     {
