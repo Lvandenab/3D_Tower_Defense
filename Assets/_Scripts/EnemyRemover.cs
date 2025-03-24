@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Playerhealth;
-
 
 public class EnemyRemover : MonoBehaviour
 {
-   public Playerhealth playerhealth;
+    public Playerhealth playerhealth;
     // Start is called before the first frame update
     void Start()
     {
