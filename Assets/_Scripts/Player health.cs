@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Playerhealth : MonoBehaviour
 {
-    public int health;
+    public int health ;
     public TextMeshProUGUI healthText;
 
     public float timer = 300;
@@ -25,10 +25,14 @@ public class Playerhealth : MonoBehaviour
         health -= x;
         Debug.Log(health);
     }
-    void Update()
+    private void updatenums()
     {
         healthText.text = "Health : " + health;
         timeleft.text = "Timespent : " + timer;
+    }
+    void Update()
+    {
+        updatenums();
         timer -= Time.deltaTime;
         if (health >= 0 && timer<= 0)
         {

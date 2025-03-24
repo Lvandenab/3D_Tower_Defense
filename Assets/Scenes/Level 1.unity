@@ -3989,7 +3989,6 @@ GameObject:
   - component: {fileID: 526522545}
   - component: {fileID: 526522548}
   - component: {fileID: 526522547}
-  - component: {fileID: 526522546}
   m_Layer: 5
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
@@ -4016,22 +4015,6 @@ RectTransform:
   m_AnchoredPosition: {x: 735, y: 0}
   m_SizeDelta: {x: 280.9876, y: 62.499573}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &526522546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526522544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad951a9943d82b845979f06a927c3353, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  healthText: {fileID: 0}
-  timer: 0
-  timeleft: {fileID: 526522547}
 --- !u!114 &526522547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4140,7 +4123,6 @@ GameObject:
   - component: {fileID: 527424326}
   - component: {fileID: 527424329}
   - component: {fileID: 527424328}
-  - component: {fileID: 527424327}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4167,22 +4149,6 @@ RectTransform:
   m_AnchoredPosition: {x: 326, y: 0}
   m_SizeDelta: {x: 280.9876, y: 62.499573}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &527424327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 527424325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad951a9943d82b845979f06a927c3353, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  healthText: {fileID: 527424328}
-  timer: 0
-  timeleft: {fileID: 0}
 --- !u!114 &527424328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9335,7 +9301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   healthText: {fileID: 527424328}
-  timer: 310
+  timer: 610
   timeleft: {fileID: 526522547}
 --- !u!4 &1132929578 stripped
 Transform:
@@ -16048,7 +16014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c19b5821cf368f743a0bc55412b3e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerhealth: {fileID: 527424327}
+  playerhealth: {fileID: 0}
 --- !u!114 &2093422405
 MonoBehaviour:
   m_ObjectHideFlags: 0
